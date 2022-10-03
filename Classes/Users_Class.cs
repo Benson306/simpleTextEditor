@@ -41,6 +41,29 @@ namespace simpleTextEditor.Classes
             }
 
             MessageBox.Show("User Has Been Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
+
+        //Method to carry out user authentication on Login
+        public bool Login()
+        {
+            string file = @"../../login.txt";
+
+            string[] lines = System.IO.File.ReadAllLines(file); //Read File
+
+            for(int i = 0; i < lines.Length; i++) //Loop through lines in the file
+            {
+                string[] field = lines[i].Split(','); //split every phrase separated by a comma into single word and store them in an array
+
+                if (field[0] == username && field[1] == password) //check if each word equals to the username and password
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
     }
 }

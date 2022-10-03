@@ -1,4 +1,5 @@
-﻿using simpleTextEditor.Forms;
+﻿using simpleTextEditor.Classes;
+using simpleTextEditor.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,7 @@ namespace simpleTextEditor
         {
             //Close Login and Exit Application
             this.Close();
+            Application.Exit();
         }
 
         private void btnNewUser_Click(object sender, EventArgs e)
@@ -29,6 +31,34 @@ namespace simpleTextEditor
             //Show the Add User Form
             NewUser frm = new NewUser();
             frm.ShowDialog();
+        }
+
+        //login button clicked
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if(txtUsername.Text.Trim().Length < 1 || txtPassword.Text.Trim().Length <1)
+            {
+                MessageBox.Show("All fields must be filled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //Create an Instance of Users Class
+            Users_Class user = new Users_Class(txtUsername.Text, txtPassword.Text, "", "","","");
+
+            //Call the login method in Users_Class
+            bool loggedIn = user.Login();
+
+            if (loggedIn)
+            {
+                this.Hide();
+
+                TextEditor txt = new TextEditor();
+                txt.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Your Login Credentials Are Not Correct!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
