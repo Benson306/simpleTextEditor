@@ -45,7 +45,7 @@ namespace simpleTextEditor.Forms
             //Set Data to Users Class
             Users_Class users = new Users_Class(txtUsername.Text.Trim(), txtPassword.Text.Trim(), cmbUserType.Text.Trim() , txtFirstName.Text.Trim() , txtLastName.Text.Trim() ,datePicker.Text.Trim());
 
-            //Method to add user to login.txt file
+            //Method to add user to login.txt file -- Method access
             users.appendLoginInformation();
         }
     }
