@@ -123,6 +123,55 @@ namespace simpleTextEditor.Forms
             }
         }
 
+        //Cut text Method
+        public void cutText()
+        {
+            try
+            {
+                //First copy to clipboard
+                Clipboard.SetText(richTextBox1.SelectedText, TextDataFormat.UnicodeText);
+
+                //Then Delete
+                richTextBox1.SelectedText = "";
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        //Copy Text Method
+        public void copyText()
+        {
+            try
+            {
+                Clipboard.SetText(richTextBox1.SelectedText, TextDataFormat.UnicodeText);
+                //Clipboard.SetText(richTextBox1.SelectedRtf, TextDataFormat.Rtf);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        //Paste TExt Method
+        public void pasteText()
+        {
+            try
+            {
+                if (Clipboard.ContainsText(TextDataFormat.UnicodeText))
+                {
+                    int i = richTextBox1.SelectionStart;
+                    richTextBox1.Text += Clipboard.GetText(TextDataFormat.UnicodeText);
+                    richTextBox1.SelectionStart = i;
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         //Open File Button
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -186,29 +235,36 @@ namespace simpleTextEditor.Forms
         //Copy Selected Text
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try { 
-                Clipboard.SetText(richTextBox1.SelectedText, TextDataFormat.UnicodeText);
-                //Clipboard.SetText(richTextBox1.SelectedRtf, TextDataFormat.Rtf);
-            }
-            catch ( Exception)
-            {
-
-            }
+            copyText();
         }
         //Paste Text from clipboard
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int i = richTextBox1.SelectionStart;
-                richTextBox1.Text += Clipboard.GetText(TextDataFormat.UnicodeText);
-                richTextBox1.SelectionStart = i;
+            pasteText();
+        }
+       
+        //Button Cut Selected Text
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cutText();
+        }
 
-            }
-            catch (Exception)
-            {
+        //Side bar cut button
+        private void btnSideCut_Click(object sender, EventArgs e)
+        {
+            cutText();
+        }
 
-            }
+        //Side bar copy button
+        private void btnSideCopy_Click(object sender, EventArgs e)
+        {
+            copyText();
+        }
+
+        //Side bar paste text button
+        private void btnSidePaste_Click(object sender, EventArgs e)
+        {
+            pasteText();
         }
     }
 }

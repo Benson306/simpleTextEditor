@@ -93,6 +93,7 @@ namespace simpleTextEditor.Forms
             this.btnSidePaste.Size = new System.Drawing.Size(37, 28);
             this.btnSidePaste.TabIndex = 11;
             this.btnSidePaste.UseVisualStyleBackColor = true;
+            this.btnSidePaste.Click += new System.EventHandler(this.btnSidePaste_Click);
             // 
             // btnSideCopy
             // 
@@ -104,6 +105,7 @@ namespace simpleTextEditor.Forms
             this.btnSideCopy.Size = new System.Drawing.Size(37, 28);
             this.btnSideCopy.TabIndex = 10;
             this.btnSideCopy.UseVisualStyleBackColor = true;
+            this.btnSideCopy.Click += new System.EventHandler(this.btnSideCopy_Click);
             // 
             // btnSideCut
             // 
@@ -115,6 +117,7 @@ namespace simpleTextEditor.Forms
             this.btnSideCut.Size = new System.Drawing.Size(37, 28);
             this.btnSideCut.TabIndex = 9;
             this.btnSideCut.UseVisualStyleBackColor = true;
+            this.btnSideCut.Click += new System.EventHandler(this.btnSideCut_Click);
             // 
             // menuStrip1
             // 
@@ -203,6 +206,7 @@ namespace simpleTextEditor.Forms
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.cutToolStripMenuItem.Text = "Cut";
+            this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // copyToolStripMenuItem
             // 
@@ -232,7 +236,7 @@ namespace simpleTextEditor.Forms
             // btnAbout
             // 
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(131, 24);
+            this.btnAbout.Size = new System.Drawing.Size(180, 24);
             this.btnAbout.Text = "About....";
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click_1);
             // 
