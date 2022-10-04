@@ -266,5 +266,32 @@ namespace simpleTextEditor.Forms
         {
             pasteText();
         }
+        
+        private void toolStripBold_Click(object sender, EventArgs e)
+        {
+            Font SelectedText_Font = richTextBox1.SelectionFont;
+            if (SelectedText_Font != null)
+            {
+                richTextBox1.SelectionFont = new Font(SelectedText_Font, SelectedText_Font.Style ^ FontStyle.Bold);
+            }
+        }
+
+        private void toolStripItalic_Click(object sender, EventArgs e)
+        {
+            Font SelectedText_Font = richTextBox1.SelectionFont;
+            if (SelectedText_Font != null)
+            {
+                richTextBox1.SelectionFont = new Font(SelectedText_Font, SelectedText_Font.Style ^ FontStyle.Italic);
+            }
+        }
+        
+        private void toolStripUnderline_Click(object sender, EventArgs e)
+        {
+            Font SelectedText_Font = richTextBox1.SelectionFont;
+            if (SelectedText_Font != null)
+            {
+                richTextBox1.SelectionFont = new Font(SelectedText_Font, SelectedText_Font.Style ^ FontStyle.Underline);
+            }
+        }
     }
 }

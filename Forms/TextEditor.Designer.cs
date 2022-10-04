@@ -56,6 +56,7 @@ namespace simpleTextEditor.Forms
             this.toolStripOpen = new System.Windows.Forms.ToolStripButton();
             this.toolStripSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSaveAs = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripBold = new System.Windows.Forms.ToolStripButton();
             this.toolStripItalic = new System.Windows.Forms.ToolStripButton();
             this.toolStripUnderline = new System.Windows.Forms.ToolStripButton();
@@ -64,7 +65,6 @@ namespace simpleTextEditor.Forms
             this.lblUserName = new System.Windows.Forms.ToolStripLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.leftToolTip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -204,7 +204,7 @@ namespace simpleTextEditor.Forms
             // 
             this.cutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripMenuItem.Image")));
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.cutToolStripMenuItem.Text = "Cut";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
@@ -212,7 +212,7 @@ namespace simpleTextEditor.Forms
             // 
             this.copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripMenuItem.Image")));
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
@@ -220,7 +220,7 @@ namespace simpleTextEditor.Forms
             // 
             this.pasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripMenuItem.Image")));
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
             this.pasteToolStripMenuItem.Text = "Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
@@ -236,7 +236,7 @@ namespace simpleTextEditor.Forms
             // btnAbout
             // 
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(180, 24);
+            this.btnAbout.Size = new System.Drawing.Size(131, 24);
             this.btnAbout.Text = "About....";
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click_1);
             // 
@@ -316,6 +316,11 @@ namespace simpleTextEditor.Forms
             this.toolStripSaveAs.ToolTipText = "Save As";
             this.toolStripSaveAs.Click += new System.EventHandler(this.toolStripSaveAs_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripBold
             // 
             this.toolStripBold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -325,6 +330,7 @@ namespace simpleTextEditor.Forms
             this.toolStripBold.Size = new System.Drawing.Size(23, 22);
             this.toolStripBold.Text = "toolStripButton5";
             this.toolStripBold.ToolTipText = "Bold";
+            this.toolStripBold.Click += new System.EventHandler(this.toolStripBold_Click);
             // 
             // toolStripItalic
             // 
@@ -335,6 +341,7 @@ namespace simpleTextEditor.Forms
             this.toolStripItalic.Size = new System.Drawing.Size(23, 22);
             this.toolStripItalic.Text = "toolStripButton6";
             this.toolStripItalic.ToolTipText = "Italic";
+            this.toolStripItalic.Click += new System.EventHandler(this.toolStripItalic_Click);
             // 
             // toolStripUnderline
             // 
@@ -345,6 +352,7 @@ namespace simpleTextEditor.Forms
             this.toolStripUnderline.Size = new System.Drawing.Size(23, 22);
             this.toolStripUnderline.Text = "toolStripButton7";
             this.toolStripUnderline.ToolTipText = "underline";
+            this.toolStripUnderline.Click += new System.EventHandler(this.toolStripUnderline_Click);
             // 
             // toolStripComboBox1
             // 
@@ -399,11 +407,6 @@ namespace simpleTextEditor.Forms
             this.richTextBox1.Size = new System.Drawing.Size(743, 408);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // TextEditor
             // 
