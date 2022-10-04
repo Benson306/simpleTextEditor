@@ -293,5 +293,44 @@ namespace simpleTextEditor.Forms
                 richTextBox1.SelectionFont = new Font(SelectedText_Font, SelectedText_Font.Style ^ FontStyle.Underline);
             }
         }
+        public void SetNewFont()
+        {
+            Font oldFont;
+            Font newFont;
+            string FName;
+            float FontSize = 8;
+            FontStyle style = 0;
+            byte charset = 0;
+
+            FName = "Times New Roman";
+            if (string.IsNullOrEmpty(toolStripComboBox1.Text))
+            {
+                FontSize = 8;
+            }
+            else
+            {
+                FontSize = float.Parse(toolStripComboBox1.Text);
+            }
+            oldFont = richTextBox1.SelectionFont;
+
+            //Check previos style of font and make sure it return same style after changing font size
+            if(oldFont == null)
+            {
+                style = FontStyle.Regular;
+            }
+            else
+            {
+                style = oldFont.Style;
+                charset = oldFont.GdiCharSet;
+            }
+
+            newFont = new Font(FName, FontSize, style, GraphicsUnit.Point, charset);
+            richTextBox1.SelectionFont = newFont;
+        }
+
+        private void toolStripComboBox1_TextChanged(object sender, EventArgs e)
+        {
+            SetNewFont();
+        }
     }
 }
