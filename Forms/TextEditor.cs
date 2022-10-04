@@ -24,6 +24,16 @@ namespace simpleTextEditor.Forms
         private void TextEditor_Load(object sender, EventArgs e)
         {
             lblUserName.Text = username;
+
+            //Check if user is View or edit and make rich text box enabled or disabled
+            if(userType == "View")
+            {
+                richTextBox1.Enabled = false;
+            }
+            else
+            {
+                richTextBox1.Enabled = true;
+            }
         }
 
         string fileName;
@@ -361,6 +371,5 @@ namespace simpleTextEditor.Forms
             }
         }
 
-        
     }
 }
