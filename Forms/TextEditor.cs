@@ -182,5 +182,33 @@ namespace simpleTextEditor.Forms
         {
             saveAs();
         }
+
+        //Copy Selected Text
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try { 
+                Clipboard.SetText(richTextBox1.SelectedText, TextDataFormat.UnicodeText);
+                //Clipboard.SetText(richTextBox1.SelectedRtf, TextDataFormat.Rtf);
+            }
+            catch ( Exception)
+            {
+
+            }
+        }
+        //Paste Text from clipboard
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int i = richTextBox1.SelectionStart;
+                richTextBox1.Text += Clipboard.GetText(TextDataFormat.UnicodeText);
+                richTextBox1.SelectionStart = i;
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }
