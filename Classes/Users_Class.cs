@@ -35,7 +35,7 @@ namespace simpleTextEditor.Classes
         public void appendLoginInformation()
         {
             // initialize file 'login.txt' to save user credentials
-            string myfile = @"../../login.txt";
+            string myfile = @"../../Files/login.txt";
 
             //append credentials to file
             using (StreamWriter sw = File.AppendText(myfile))
@@ -50,7 +50,7 @@ namespace simpleTextEditor.Classes
         //Method to carry out user authentication on Login
         public bool Login()
         {
-            string file = @"../../login.txt";
+            string file = @"../../Files/login.txt";
 
             string[] lines = System.IO.File.ReadAllLines(file); //Read File
 

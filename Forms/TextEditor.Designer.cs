@@ -33,10 +33,6 @@ namespace simpleTextEditor.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextEditor));
-            this.leftToolTip = new System.Windows.Forms.Panel();
-            this.btnSidePaste = new System.Windows.Forms.Button();
-            this.btnSideCopy = new System.Windows.Forms.Button();
-            this.btnSideCut = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,59 +61,17 @@ namespace simpleTextEditor.Forms
             this.lblUserName = new System.Windows.Forms.ToolStripLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.leftToolTip.SuspendLayout();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.btnSideCut = new System.Windows.Forms.ToolStripButton();
+            this.btnSideCopy = new System.Windows.Forms.ToolStripButton();
+            this.btnSidePaste = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // leftToolTip
-            // 
-            this.leftToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.leftToolTip.Controls.Add(this.btnSidePaste);
-            this.leftToolTip.Controls.Add(this.btnSideCopy);
-            this.leftToolTip.Controls.Add(this.btnSideCut);
-            this.leftToolTip.Location = new System.Drawing.Point(-1, 52);
-            this.leftToolTip.Name = "leftToolTip";
-            this.leftToolTip.Size = new System.Drawing.Size(41, 109);
-            this.leftToolTip.TabIndex = 8;
-            // 
-            // btnSidePaste
-            // 
-            this.btnSidePaste.FlatAppearance.BorderSize = 0;
-            this.btnSidePaste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSidePaste.Image = ((System.Drawing.Image)(resources.GetObject("btnSidePaste.Image")));
-            this.btnSidePaste.Location = new System.Drawing.Point(1, 70);
-            this.btnSidePaste.Name = "btnSidePaste";
-            this.btnSidePaste.Size = new System.Drawing.Size(37, 28);
-            this.btnSidePaste.TabIndex = 11;
-            this.btnSidePaste.UseVisualStyleBackColor = true;
-            this.btnSidePaste.Click += new System.EventHandler(this.btnSidePaste_Click);
-            // 
-            // btnSideCopy
-            // 
-            this.btnSideCopy.FlatAppearance.BorderSize = 0;
-            this.btnSideCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSideCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnSideCopy.Image")));
-            this.btnSideCopy.Location = new System.Drawing.Point(2, 34);
-            this.btnSideCopy.Name = "btnSideCopy";
-            this.btnSideCopy.Size = new System.Drawing.Size(37, 28);
-            this.btnSideCopy.TabIndex = 10;
-            this.btnSideCopy.UseVisualStyleBackColor = true;
-            this.btnSideCopy.Click += new System.EventHandler(this.btnSideCopy_Click);
-            // 
-            // btnSideCut
-            // 
-            this.btnSideCut.FlatAppearance.BorderSize = 0;
-            this.btnSideCut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSideCut.Image = ((System.Drawing.Image)(resources.GetObject("btnSideCut.Image")));
-            this.btnSideCut.Location = new System.Drawing.Point(2, 5);
-            this.btnSideCut.Name = "btnSideCut";
-            this.btnSideCut.Size = new System.Drawing.Size(37, 28);
-            this.btnSideCut.TabIndex = 9;
-            this.btnSideCut.UseVisualStyleBackColor = true;
-            this.btnSideCut.Click += new System.EventHandler(this.btnSideCut_Click);
             // 
             // menuStrip1
             // 
@@ -356,6 +310,7 @@ namespace simpleTextEditor.Forms
             // 
             // toolStripComboBox1
             // 
+            this.toolStripComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.toolStripComboBox1.Items.AddRange(new object[] {
             "8",
             "9",
@@ -409,20 +364,76 @@ namespace simpleTextEditor.Forms
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
+            // toolStrip2
+            // 
+            this.toolStrip2.AutoSize = false;
+            this.toolStrip2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator2,
+            this.btnSideCut,
+            this.btnSideCopy,
+            this.btnSidePaste});
+            this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
+            this.toolStrip2.Location = new System.Drawing.Point(0, 53);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(34, 101);
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // btnSideCut
+            // 
+            this.btnSideCut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSideCut.Image = ((System.Drawing.Image)(resources.GetObject("btnSideCut.Image")));
+            this.btnSideCut.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSideCut.Name = "btnSideCut";
+            this.btnSideCut.Size = new System.Drawing.Size(32, 20);
+            this.btnSideCut.Text = "toolStripButton1";
+            this.btnSideCut.ToolTipText = "Cut";
+            this.btnSideCut.Click += new System.EventHandler(this.btnSideCut_Click_1);
+            // 
+            // btnSideCopy
+            // 
+            this.btnSideCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSideCopy.Image = ((System.Drawing.Image)(resources.GetObject("btnSideCopy.Image")));
+            this.btnSideCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSideCopy.Name = "btnSideCopy";
+            this.btnSideCopy.Size = new System.Drawing.Size(32, 20);
+            this.btnSideCopy.Text = "toolStripButton2";
+            this.btnSideCopy.ToolTipText = "Copy";
+            this.btnSideCopy.Click += new System.EventHandler(this.btnSideCopy_Click_1);
+            // 
+            // btnSidePaste
+            // 
+            this.btnSidePaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSidePaste.Image = ((System.Drawing.Image)(resources.GetObject("btnSidePaste.Image")));
+            this.btnSidePaste.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSidePaste.Name = "btnSidePaste";
+            this.btnSidePaste.Size = new System.Drawing.Size(32, 20);
+            this.btnSidePaste.Text = "toolStripButton3";
+            this.btnSidePaste.ToolTipText = "Paste";
+            this.btnSidePaste.Click += new System.EventHandler(this.btnSidePaste_Click_1);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(32, 6);
+            // 
             // TextEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 529);
+            this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.leftToolTip);
+            this.KeyPreview = true;
             this.Name = "TextEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Simple Text Editor v1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TextEditor_Load);
-            this.leftToolTip.ResumeLayout(false);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextEditor_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -430,15 +441,13 @@ namespace simpleTextEditor.Forms
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel leftToolTip;
-        private System.Windows.Forms.Button btnSideCut;
-        private System.Windows.Forms.Button btnSideCopy;
-        private System.Windows.Forms.Button btnSidePaste;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
@@ -467,5 +476,10 @@ namespace simpleTextEditor.Forms
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton btnSideCut;
+        private System.Windows.Forms.ToolStripButton btnSideCopy;
+        private System.Windows.Forms.ToolStripButton btnSidePaste;
     }
 }

@@ -51,5 +51,6 @@ namespace simpleTextEditor.Forms
             //Hide New Users Form after adding new user
             this.Hide();
         }
+
     }
 }

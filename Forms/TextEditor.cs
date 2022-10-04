@@ -35,7 +35,7 @@ namespace simpleTextEditor.Forms
             {
 
 
-                fd.Filter = "Text files (*.txt)|*.txt|RTF files (*.rtf)|*.rtf";
+                fd.Filter = "RTF files (*.rtf)|*.rtf|Text files (*.txt)|*.txt";
 
                 if (fd.ShowDialog() == DialogResult.OK)
                 {
@@ -98,9 +98,7 @@ namespace simpleTextEditor.Forms
 
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    System.IO.StreamWriter file = new System.IO.StreamWriter(saveFileDialog1.FileName.ToString());
-                    file.WriteLine(richTextBox1.Text);
-                    file.Close();
+                    richTextBox1.SaveFile(saveFileDialog1.FileName);
                     MessageBox.Show("File Has Been Saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -115,6 +113,7 @@ namespace simpleTextEditor.Forms
                 if (result == DialogResult.Yes)
                 {
                     saveFile(); //Call the save method.
+                    richTextBox1.Text = string.Empty;
                 }
                 else
                 {
@@ -250,23 +249,25 @@ namespace simpleTextEditor.Forms
         }
 
         //Side bar cut button
-        private void btnSideCut_Click(object sender, EventArgs e)
+        private void btnSideCut_Click_1(object sender, EventArgs e)
         {
             cutText();
         }
+ 
 
-        //Side bar copy button
-        private void btnSideCopy_Click(object sender, EventArgs e)
+        //Side bar copy button  
+        private void btnSideCopy_Click_1(object sender, EventArgs e)
         {
             copyText();
         }
 
         //Side bar paste text button
-        private void btnSidePaste_Click(object sender, EventArgs e)
+        private void btnSidePaste_Click_1(object sender, EventArgs e)
         {
             pasteText();
         }
         
+        //Make Selected Text Bold
         private void toolStripBold_Click(object sender, EventArgs e)
         {
             Font SelectedText_Font = richTextBox1.SelectionFont;
@@ -276,6 +277,7 @@ namespace simpleTextEditor.Forms
             }
         }
 
+        //Italize selected Text
         private void toolStripItalic_Click(object sender, EventArgs e)
         {
             Font SelectedText_Font = richTextBox1.SelectionFont;
@@ -285,6 +287,7 @@ namespace simpleTextEditor.Forms
             }
         }
         
+        //Underline Selected text
         private void toolStripUnderline_Click(object sender, EventArgs e)
         {
             Font SelectedText_Font = richTextBox1.SelectionFont;
@@ -293,6 +296,8 @@ namespace simpleTextEditor.Forms
                 richTextBox1.SelectionFont = new Font(SelectedText_Font, SelectedText_Font.Style ^ FontStyle.Underline);
             }
         }
+
+        //Change Font Size
         public void SetNewFont()
         {
             Font oldFont;
@@ -328,9 +333,34 @@ namespace simpleTextEditor.Forms
             richTextBox1.SelectionFont = newFont;
         }
 
+        //Click font change
         private void toolStripComboBox1_TextChanged(object sender, EventArgs e)
         {
             SetNewFont();
         }
+
+        private void TextEditor_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Control && e.KeyCode == Keys.N)       // Ctrl + N New
+            {
+                NewFile();
+                e.SuppressKeyPress = true;  // Stops other controls on the form receiving event.
+            }
+
+            if (e.Control && e.KeyCode == Keys.S)       // Ctrl + S Save
+            {
+                saveFile();
+                e.SuppressKeyPress = true;  // Stops other controls on the form receiving event.
+            }
+
+            if (e.Control && e.KeyCode == Keys.O)       // Ctrl + O Open
+            {
+                openFIle();
+                e.SuppressKeyPress = true;  // Stops other controls on the form receiving event.
+            }
+        }
+
+        
     }
 }
