@@ -13,7 +13,7 @@ using System.Windows.Forms;
 namespace simpleTextEditor
 {
     public partial class LoginForm : Form
-    {
+    {        
         public LoginForm()
         {
             InitializeComponent();
@@ -46,19 +46,11 @@ namespace simpleTextEditor
             Users_Class user = new Users_Class(txtUsername.Text, txtPassword.Text, "", "","","");
 
             //Call the login method in Users_Class
-            bool loggedIn = user.Login();
-
-            if (loggedIn)
+            if (user.Login())
             {
                 this.Hide();
-
-                TextEditor txt = new TextEditor();
-                txt.ShowDialog();
             }
-            else
-            {
-                MessageBox.Show("Your Login Credentials Are Not Correct!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+ 
         }
     }
 }

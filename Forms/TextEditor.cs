@@ -12,6 +12,8 @@ namespace simpleTextEditor.Forms
 {
     public partial class TextEditor : Form
     {
+        public string username { get; set; }
+        public string userType { get; set; }
         public TextEditor()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace simpleTextEditor.Forms
 
         private void TextEditor_Load(object sender, EventArgs e)
         {
-            
+            lblUserName.Text = username;
         }
 
         //Show About form        

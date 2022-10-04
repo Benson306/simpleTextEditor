@@ -61,12 +61,14 @@ namespace simpleTextEditor.Forms
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.lblUserName = new System.Windows.Forms.ToolStripLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.leftToolTip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftToolTip
@@ -251,7 +253,7 @@ namespace simpleTextEditor.Forms
             this.toolStripButton7,
             this.toolStripComboBox1,
             this.toolStripLabel1,
-            this.toolStripLabel2});
+            this.lblUserName});
             this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(907, 25);
@@ -353,11 +355,11 @@ namespace simpleTextEditor.Forms
             this.toolStripLabel1.Size = new System.Drawing.Size(77, 22);
             this.toolStripLabel1.Text = "User Name:";
             // 
-            // toolStripLabel2
+            // lblUserName
             // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(65, 22);
-            this.toolStripLabel2.Text = "username";
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(65, 22);
+            this.lblUserName.Text = "username";
             // 
             // panel2
             // 
@@ -365,23 +367,34 @@ namespace simpleTextEditor.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Location = new System.Drawing.Point(64, 86);
+            this.panel2.Controls.Add(this.richTextBox1);
+            this.panel2.Location = new System.Drawing.Point(64, 62);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(775, 412);
+            this.panel2.Size = new System.Drawing.Size(793, 455);
             this.panel2.TabIndex = 9;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(21, 24);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(743, 408);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
             // 
             // TextEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 529);
-            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.leftToolTip);
             this.Name = "TextEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Simple Text Editor";
+            this.Text = " Simple Text Editor v1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TextEditor_Load);
             this.leftToolTip.ResumeLayout(false);
@@ -391,6 +404,7 @@ namespace simpleTextEditor.Forms
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -424,7 +438,8 @@ namespace simpleTextEditor.Forms
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripLabel lblUserName;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

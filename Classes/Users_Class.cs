@@ -1,10 +1,13 @@
-﻿using System;
+﻿using simpleTextEditor.Forms;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace simpleTextEditor.Classes
 {
@@ -55,11 +58,26 @@ namespace simpleTextEditor.Classes
             {
                 string[] field = lines[i].Split(','); //split every phrase separated by a comma into single word and store them in an array
 
-                if (field[0] == username && field[1] == password) //check if each word equals to the username and password
+                if (field[0] == username && field[1] == password) 
                 {
+                    this.userType = field[2];
+                    this.firstName = field[3];
+                    this.lastName = field[4];
+                    this.DateOfBirth = field[5];
+
+                    using ( TextEditor frm = new TextEditor())
+                    {
+                        frm.username = this.username;
+                        frm.userType = this.userType;
+                        frm.ShowDialog();
+                    }
+
                     return true;
+
                 }
+                
             }
+            MessageBox.Show("Your Login Credentials Are Not Correct!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             return false;
         }
@@ -67,3 +85,5 @@ namespace simpleTextEditor.Classes
 
     }
 }
+
+
