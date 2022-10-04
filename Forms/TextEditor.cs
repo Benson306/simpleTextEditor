@@ -26,29 +26,14 @@ namespace simpleTextEditor.Forms
             lblUserName.Text = username;
         }
 
-        //Show About form        
-        private void btnAbout_Click_1(object sender, EventArgs e)
-        {
-            About abt = new About();
-            abt.ShowDialog();
-        }
-
-        //logout button clicked
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Close();
-
-            LoginForm login = new LoginForm();
-            login.Show();
-        }
-
-        //Open file
         string fileName;
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+
+        //Open file method
+        public void openFIle()
         {
             using (OpenFileDialog fd = new OpenFileDialog())
             {
-                
+
 
                 fd.Filter = "Text files (*.txt)|*.txt|RTF files (*.rtf)|*.rtf";
 
@@ -68,8 +53,7 @@ namespace simpleTextEditor.Forms
             }
         }
         
-        //Function to Save .rtf file
-
+        //Method to Save .rtf file
         public void saveFile()
         {
             //check if file path is null
@@ -82,39 +66,121 @@ namespace simpleTextEditor.Forms
                 else
                 {
                     //If its not empty and its a new file , Save AS method is called instead of save
-                    MessageBox.Show("Save As");
+                    saveAs();
                 }
             }
             else
             {
-                string path = "../../login.rtf";
-                using (File.Create(path)) ;
+                String newPath = fileName.Substring(0, (fileName.Length - 4)); // remove.txt or .rtf from filename
+
+                string path = newPath+".rtf"; //Add .rtf to fileName
+
+                using (File.Create(path));
                 richTextBox1.SaveFile(path, RichTextBoxStreamType.RichText);
 
-                MessageBox.Show("File Has Been saved as" + "login.rtf", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("File Has Been saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        //Method to Save AS .rtf
+        public void saveAs()
+        {
+            if(richTextBox1.Text == String.Empty)
+            {
+                MessageBox.Show("You cannot Save an empty Document","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf";
+                saveFileDialog1.Title = "Save the Document";
+                saveFileDialog1.RestoreDirectory = true;
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    System.IO.StreamWriter file = new System.IO.StreamWriter(saveFileDialog1.FileName.ToString());
+                    file.WriteLine(richTextBox1.Text);
+                    file.Close();
+                    MessageBox.Show("File Has Been Saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        
+        //New Button Method
+        public void NewFile()
+        {
+            if (richTextBox1.Text != string.Empty)
+            {
+                DialogResult result = MessageBox.Show("Would You Like to Save the document before proceeding?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    saveFile(); //Call the save method.
+                }
+                else
+                {
+                    richTextBox1.Text = string.Empty; //clear richTextBox
+                }
+            }
+        }
+
+        //Open File Button
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFIle();
+        }
+
+        //Save File Button
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFile();
         }
 
-        // New Button
+        // New File Button
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(richTextBox1.Text != string.Empty)
-            {
-                    DialogResult result = MessageBox.Show("Would You Like to Save the document before proceeding?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        saveFile(); //Call the save method.
-                    }
-                    else
-                    {
-                        richTextBox1.Text = string.Empty; //clear richTextBox
-                    }
-            }
-            
+            NewFile();
+        }
+
+        //Save AS BUtton
+        private void saveASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveAs();
+        }
+
+        //Show About form        
+        private void btnAbout_Click_1(object sender, EventArgs e)
+        {
+            About abt = new About();
+            abt.ShowDialog();
+        }
+
+        //logout button clicked
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            LoginForm login = new LoginForm();
+            login.Show();
+        }
+
+        private void toolStripNew_Click(object sender, EventArgs e)
+        {
+            NewFile();
+        }
+
+        private void toolStripOpen_Click(object sender, EventArgs e)
+        {
+            openFIle();
+        }
+
+        private void toolStripSave_Click(object sender, EventArgs e)
+        {
+            saveFile();
+        }
+
+        private void toolStripSaveAs_Click(object sender, EventArgs e)
+        {
+            saveAs();
         }
     }
 }
